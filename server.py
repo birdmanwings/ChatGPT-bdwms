@@ -94,7 +94,7 @@ def set_prev_conv_id(user, conversation_id, prev_conv_id):
     prev_conv_id_cache[user] = (conversation_id, prev_conv_id)
 
 
-@APP.route("/chat", methods=["POST"])
+@APP.route("/bdwms-chat", methods=["POST"])
 def chat():
     global access_token
 
@@ -145,7 +145,7 @@ def update_id_in_stream(user, **kwargs):
     yield json.dumps({"response": "[DONE]"})
 
 
-@APP.route("/chat-stream", methods=["POST"])
+@APP.route("/bdwms-chat-stream", methods=["POST"])
 def chat_stream():
     global access_token
 
@@ -173,7 +173,7 @@ def chat_stream():
 
 
 def start_browser():
-    APP.run(port=5000, threaded=True)
+    APP.run(host='0.0.0.0', port=5003, threaded=True)
 
 
 if __name__ == "__main__":
